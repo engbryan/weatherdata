@@ -1,59 +1,60 @@
-# DocumentaÁ„o do Projeto WeatherData
-Este cÛdigo foi escrito apenas como uma demonstraÁ„o simplÛria das habilidades de codificaÁ„o, cujo objetivo È avaliar o grau de conhecimento tÈcnico do candidato.
-Por tanto, este cÛdigo n„o implementa o estado-da-arte, nem em nÌveis de estrutura, codificaÁ„o, ou melhores pr·ticas
+# Documenta√ß√£o do Projeto WeatherData
+Este c√≥digo foi escrito apenas como uma demonstra√ß√£o simpl√≥ria das habilidades de codifica√ß√£o, cujo objetivo √© avaliar o grau de conhecimento t√©cnico do candidato.
+Por tanto, este c√≥digo n√£o implementa o estado-da-arte, nem em n√≠veis de estrutura, codifica√ß√£o, ou melhores pr√°ticas
 
-## Vis„o Geral
-O projeto WeatherData È uma API para obter e gerenciar dados meteorolÛgicos. Ele fornece endpoints para consultar informaÁıes meteorolÛgicas de diferentes cidades e aeroportos, bem como funcionalidades CRUD (Create, Read, Update, Delete) para dados meteorolÛgicos.
+## Vis√£o Geral
+O projeto WeatherData √© uma API para obter e gerenciar dados meteorol√≥gicos. Ele fornece endpoints para consultar informa√ß√µes meteorol√≥gicas de diferentes cidades e aeroportos, bem como funcionalidades CRUD (Create, Read, Update, Delete) para dados meteorol√≥gicos.
 
-O ideal neste projeto È que o kubernetes inicie um script curl que:
+O ideal neste projeto √© que o kubernetes inicie um script curl que:
 
-1. Invoca as funcoes de previs„o de tempo dos controladores do projeto
+1. Invoca as funcoes de previs√£o de tempo dos controladores do projeto
 
-2. Invoca o POST do ODATA, passando os objetos de previs„o para persistir em banco
+2. Invoca o POST do ODATA, passando os objetos de previs√£o para persistir em banco
 
-Desta forma, a arquitetura estaria em conformidade as as boas pr·ticas atuais.
-Por motivos de brevidade, tal feito n„o foi entegue nesta demonstraÁ„o.
+Desta forma, a arquitetura estaria em conformidade as as boas pr√°ticas atuais.
+Por motivos de brevidade, tal feito n√£o foi entegue nesta demonstra√ß√£o.
+
+## Boas pr√°ticas
+O projeto segue uma estrutura de pastas organizada de acordo com princ√≠pios SOLID, DRY, YAGNI, al√©m de clean code.
 
 ## Estrutura de Pastas
-O projeto segue uma estrutura de pastas organizada de acordo com princÌpios SOLID:
-
-- **Controllers:** ContÈm os controladores da API, incluindo o `WeatherDataController` que lida com as operaÁıes CRUD.
-- **DataAccess:** ContÈm o contexto do banco de dados e as migraÁıes do Entity Framework Core.
-- **Models:** ContÈm os modelos de dados utilizados na aplicaÁ„o, incluindo `WeatherData`.
-- **Services:** ContÈm a interface `IWeatherDataService` e a implementaÁ„o `WeatherDataService` para recuperar dados meteorolÛgicos da API BrasilAPI.
+- **Controllers:** Cont√©m os controladores da API, incluindo o `WeatherDataController` que lida com as opera√ß√µes CRUD.
+- **DataAccess:** Cont√©m o contexto do banco de dados e as migra√ß√µes do Entity Framework Core.
+- **Models:** Cont√©m os modelos de dados utilizados na aplica√ß√£o, incluindo `WeatherData`.
+- **Services:** Cont√©m a interface `IWeatherDataService` e a implementa√ß√£o `WeatherDataService` para recuperar dados meteorol√≥gicos da API BrasilAPI.
 
 ## Tecnologias Utilizadas
 - OData: Framework para desenvolvimento de APIs RESTful.
 - ASP.NET Core: Framework para desenvolvimento de APIs web.
 - Entity Framework Core: Para acesso e gerenciamento de dados.
 - Swagger: Utilizado para documentar a API e permitir testes interativos.
-- Docker: Usado para empacotar a aplicaÁ„o em contÍineres.
+- Docker: Usado para empacotar a aplica√ß√£o em cont√™ineres.
 
-## ConfiguraÁ„o e ExecuÁ„o
+## Configura√ß√£o e Execu√ß√£o
 Para configurar e executar o projeto, siga os passos abaixo:
 
-1. Clone o repositÛrio do projeto.
+1. Clone o reposit√≥rio do projeto.
 
-2. Certifique-se de ter o .NET Core SDK e o Docker instalados em sua m·quina.
+2. Certifique-se de ter o .NET Core SDK e o Docker instalados em sua m√°quina.
 
-3. Configure a string de conex„o com o banco de dados SQL Server no arquivo `appsettings.json` ou usando vari·veis de ambiente.
+3. Configure a string de conex√£o com o banco de dados SQL Server no arquivo `appsettings.json` ou usando vari√°veis de ambiente.
 
-4. Execute as migraÁıes do Entity Framework Core para criar o banco de dados:
+4. Execute as migra√ß√µes do Entity Framework Core para criar o banco de dados:
 
    ```
    dotnet ef database update
    ```
 5. Execute o docker
  
-6. Abra a aplicaÁ„o
+6. Abra a aplica√ß√£o
 
-## DocumentaÁ„o da API
-A API È documentada usando o Swagger, que fornece uma interface interativa para explorar e testar os endpoints da API. Acesse a documentaÁ„o em `http://localhost:8080/swagger`.
+## Documenta√ß√£o da API
+A API √© documentada usando o Swagger, que fornece uma interface interativa para explorar e testar os endpoints da API. Acesse a documenta√ß√£o em `http://localhost:8080/swagger`.
 
 ## Testes
-O projeto inclui testes de integraÁao para garantir o funcionamento correto das funcionalidades. Os testes est„o localizados na pasta `WeatherData.Tests` e podem ser executados usando um runner de testes compatÌvel com xUnit.
-Diversos testes est„o falhando por um erro na migration, que ocorreu em ˙ltima hora.
+O projeto inclui testes de integra√ßao para garantir o funcionamento correto das funcionalidades. Os testes est√£o localizados na pasta `WeatherData.Tests` e podem ser executados usando um runner de testes compat√≠vel com xUnit.
+Diversos testes est√£o falhando por um erro na migration, que ocorreu em √∫ltima hora.
 
-TambÈm h· alguns erros de ambiguidade de controllers devido ao Odata, que est· tendo suas rotas confundidas com as rotas nativas do ASPnetCore.
+Tamb√©m h√° alguns erros de ambiguidade de controllers devido ao Odata, que est√° tendo suas rotas confundidas com as rotas nativas do ASPnetCore.
 
-N„o houve mais tempo para reparar o problema.
+N√£o houve mais tempo para reparar o problema.
